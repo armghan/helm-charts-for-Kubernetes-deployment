@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "hutfin-web-fe.fullname" . }}
+  name: {{ include "my-app-1.fullname" . }}
   labels:
-    {{- include "hutfin-web-fe.labels" . | nindent 4 }}
+    {{- include "my-app-1.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "hutfin-web-fe.fullname" . }}
+    name: {{ include "my-app-1.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
